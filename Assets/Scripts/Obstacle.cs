@@ -12,8 +12,12 @@ public class Obstacle : MonoBehaviour
 
     public Transform topObject;
     public Transform bottomObject;
-
+    GameManager gameManager;
     public float widthPadding = 4f;
+    public void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
 
     public Vector3 SetRandomPlace(Vector3 lastPosition, int obstacleCount)
     {
@@ -29,5 +33,12 @@ public class Obstacle : MonoBehaviour
 
         return placePosition;
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        InGamePlayer player = other.GetComponent<InGamePlayer>();
+        if (player != null)
+            gameManager.AddScore(1);
+    }
+
 
 }

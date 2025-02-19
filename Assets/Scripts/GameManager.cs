@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     static GameManager gameManager;
-
+    UIManager uiManager;
+    public UIManager UIManager {  get { return uiManager; } }
     public static GameManager Instance
     {
         get { return gameManager; }
@@ -17,16 +18,20 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gameManager = this;
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over");
+        uiManager.ToMain();
+        uiManager.UpdateScore(0);
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        uiManager.ToMain();
+      
     }
 
     public void AddScore(int score)
@@ -34,6 +39,7 @@ public class GameManager : MonoBehaviour
         currentScore += score;
 
         Debug.Log("Score: " + currentScore);
+        uiManager.UpdateScore(currentScore);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
