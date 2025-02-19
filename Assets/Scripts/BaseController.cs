@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BaseController : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class BaseController : MonoBehaviour
     protected virtual void Update()
     {
         HandleAction();
-      
+
     }
 
     protected virtual void FixedUpdate()
@@ -63,5 +63,5 @@ public class BaseController : MonoBehaviour
 
 
 
-   
+
 }
