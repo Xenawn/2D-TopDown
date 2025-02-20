@@ -21,8 +21,12 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     public void ToMain()
     {
-        SceneManager.LoadScene("MainScene");
         mainText.gameObject.SetActive(true);
+        if (Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene("MainScene");
+        }
+        
     }
     public void UpdateScore(int score)
     {
