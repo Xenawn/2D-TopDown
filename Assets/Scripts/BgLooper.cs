@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class BgLooper : MonoBehaviour
 {
-    public int numBgCount = 5;
+    public int numBgCount = 2;
 
     public int obstacleCount = 0;
     public Vector3 obstacleLastPosition = Vector3.zero;
