@@ -36,7 +36,7 @@ public class TalkManager : MonoBehaviour
     {
         talkImg.SetActive(true);
         talk.gameObject.SetActive(true);
-        talk.text = "Come on!\n i am Lizard";
+        talk.text = " Go to the Game Zone\n Go up ";
      
 
 
