@@ -8,6 +8,7 @@ TagManager:
   - Chest
   - Ground
   - Portal
+  - NPC
   layers:
   - Default
   - TransparentFX
