@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI mainText;
+    public TextMeshProUGUI bestScoreText; // 최고 점수
     void Start()
     {
         if (mainText == null)
@@ -16,6 +17,11 @@ public class UIManager : MonoBehaviour
 
         if (scoreText == null)
             Debug.LogError("score text is null");
+
+        int savedScore = PlayerPrefs.GetInt("Score", 0);
+        int bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        scoreText.text = "Score: " + savedScore.ToString();
+        bestScoreText.text = "Best Score: " + bestScore.ToString(); 
     }
 
     // Update is called once per frame
@@ -30,6 +36,7 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateScore(int score)
     {
+        
         scoreText.text = score.ToString();
     }
 }

@@ -24,6 +24,15 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
+        PlayerPrefs.SetInt("Score", currentScore); // 점수를 저장
+
+        int bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        if (currentScore > bestScore)
+        {
+            PlayerPrefs.SetInt("BestScore", currentScore); // 최고 점수 업데이트
+        }
+
+        PlayerPrefs.Save();
         uiManager.ToMain();
         uiManager.UpdateScore(0);
     }
